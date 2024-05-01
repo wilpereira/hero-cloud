@@ -7,28 +7,28 @@ import { UserListComponent } from './pages/user/user-list/user-list.component';
 
 const routes: Routes = [
   {
+    path: 'users',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+  {
     path: '',
-    children: [
-      {
-        path: 'users',
-        component: UserListComponent,
-        loadChildren: () => import('./pages/user/user.module').then((module) => module.UserModule)
-      },
-      {
-        path: 'addUser',
-        component: UserFormComponent
-      },
-      {
-        path: 'teachers',
-        component: TeacherListComponent,
-        loadChildren: () => import('./pages/teacher/teacher.module').then((module) => module.TeacherModule)
-      },
-      {
-        path: 'addTeacher',
-        component: TeacherFormComponent
-      },
-    ]
-  }
+    component: UserListComponent,
+    loadChildren: () => import('./pages/user/user.module').then((module) => module.UserModule)
+  },
+  {
+    path: 'addUser',
+    component: UserFormComponent
+  },
+  {
+    path: 'teachers',
+    component: TeacherListComponent,
+    loadChildren: () => import('./pages/teacher/teacher.module').then((module) => module.TeacherModule)
+  },
+  {
+    path: 'addTeacher',
+    component: TeacherFormComponent
+  },
 ];
 
 @NgModule({
